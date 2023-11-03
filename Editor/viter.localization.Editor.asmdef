@@ -1,0 +1,7 @@
+{
+    "name": "viter.localization.Editor",
+	"references": [
+        "viter.localization",
+        "viter.serdictionary",
+		"Unity.TextMeshPro"]
+}
