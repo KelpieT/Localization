@@ -5,8 +5,7 @@
     "unity": "2019.2",
     "description": "Localization",
     "dependencies": {
-        "com.viter.serdictionary": "1.0.0",
-        "com.Unity.TextMeshPro": "1.0.0"
+        "com.viter.serdictionary": "1.0.0"
     },
     "author": {
         "name": "Andrey Laptev",
