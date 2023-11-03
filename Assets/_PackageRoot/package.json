@@ -4,9 +4,12 @@
     "version": "1.0.0",
     "unity": "2019.2",
     "description": "Localization",
-	"dependencies": {
-      
+    "dependencies": {
+        "com.viter.serdictionary": "1.0.0",
+        "com.Unity.TextMeshPro": "1.0.0"
     },
-    "author": { "name": "Andrey Laptev", 
-    "url": "https://github.com/KelpieT" }
+    "author": {
+        "name": "Andrey Laptev",
+        "url": "https://github.com/KelpieT"
+    }
 }
