@@ -19,6 +19,18 @@ namespace Viter.Localization
             MainMonoLocalization.OnUpdateLanguage -= UpdateComponent;
         }
 
+        public void SetKey(string key)
+        {
+            this.key = key;
+            UpdateComponent();
+        }
+
+        public void SetFontKey(string fontKey)
+        {
+            this.fontKey = fontKey;
+            UpdateComponent();
+        }
+
         protected abstract void UpdateComponent();
     }
 }
