@@ -92,5 +92,10 @@ namespace Viter.Localization
             }
             return langs;
         }
+
+        public string GetCurrentLanguage()
+        {
+            return currentLangISO3;
+        }
     }
 }
