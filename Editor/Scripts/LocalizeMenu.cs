@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+#if UNITY_EDITOR
 namespace Viter.Localization.Editor
 {
     public class LocalizeMenu
@@ -44,3 +45,5 @@ namespace Viter.Localization.Editor
         }
     }
 }
+
+#endif

@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Viter.Dictionary;
 
+#if UNITY_EDITOR
 namespace Viter.Localization.Editor
 {
     [CustomEditor(typeof(MainMonoLocalization))]
@@ -107,3 +108,5 @@ namespace Viter.Localization.Editor
         }
     }
 }
+
+#endif
