@@ -16,9 +16,17 @@ namespace Viter.Localization.Editor
         private Object jsonTextAsset;
         private Object font;
         private Object fontTmp;
+        private bool drawDefaultInspector;
         public override void OnInspectorGUI()
         {
-            DrawDefaultInspector();
+            if (drawDefaultInspector)
+            {
+                DrawDefaultInspector();
+            }
+            GUILayout.BeginHorizontal();
+            drawDefaultInspector = EditorGUILayout.Toggle(drawDefaultInspector);
+            GUILayout.Label("drawDefaultInspector");
+            GUILayout.EndHorizontal();
             GUILayout.Label("Localization JSON");
             // json = EditorGUILayout.TextArea(json, GUILayout.Height(150));
             jsonTextAsset = EditorGUILayout.ObjectField(jsonTextAsset, typeof(TextAsset));
