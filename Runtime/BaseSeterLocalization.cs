@@ -22,13 +22,16 @@ namespace Viter.Localization
         public void SetKey(string key)
         {
             this.key = key;
-            UpdateComponent();
         }
 
         public void SetFontKey(string fontKey)
         {
             this.fontKey = fontKey;
-            UpdateComponent();
+        }
+
+        public void SetTranslateFont(bool translateFont)
+        {
+            this.translateFont = translateFont;
         }
 
         protected abstract void UpdateComponent();
