@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
 namespace Viter.Localization.Editor
 {
     [System.Serializable]
@@ -24,5 +25,7 @@ namespace Viter.Localization.Editor
         public string value;
     }
 
-    
+
 }
+
+#endif
