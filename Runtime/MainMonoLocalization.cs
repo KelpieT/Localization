@@ -5,9 +5,6 @@ using UnityEngine;
 using Viter.Dictionary;
 using System.Globalization;
 using TMPro;
-#if TMP_ENABLE
-
-#endif
 
 namespace Viter.Localization
 {
