@@ -81,5 +81,16 @@ namespace Viter.Localization
                 return default;
             }
         }
+
+        public List<string> GetAllLanguages()
+        {
+            int count = stringContainer.AllDicts.Dict.Count;
+            List<string> langs = new(count);
+            foreach (var item in stringContainer.AllDicts.Dict)
+            {
+                langs.Add(item.Key);
+            }
+            return langs;
+        }
     }
 }
