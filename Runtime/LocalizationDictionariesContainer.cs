@@ -12,6 +12,7 @@ namespace Viter.Localization
         private SerializableDicrionary<string, TValue> currentDict;
 
         public SerializableDicrionary<string, TValue> CurrentDict { get => currentDict; }
+        public SerializableDicrionary<string, SerializableDicrionary<string, TValue>> AllDicts { get => allDicts; }
 
         public string SetLangDict(string langISO3, string defaultLang)
         {

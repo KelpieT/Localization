@@ -21,7 +21,9 @@ namespace Viter.Localization
         private string currentLangISO3;
 
         public LocalizationDictionariesContainer<string> StringContainer { get => stringContainer; set => stringContainer = value; }
-        
+        public LocalizationDictionariesContainer<TMP_FontAsset> TmpFontContainer { get => tmpFontContainer; set => tmpFontContainer = value; }
+        public LocalizationDictionariesContainer<Font> FontContainer { get => fontContainer; set => fontContainer = value; }
+
         private void OnEnable()
         {
             instance = this;
