@@ -54,9 +54,12 @@ namespace Viter.Localization.Editor
                     {
 
                         json = (jsonTextAsset as TextAsset).text;
-
                         SerializableDicrionary<string, SerializableDicrionary<string, string>> allDicts = FromJson();
+
+                        Undo.RecordObject(mainMonoLocalization, "Set localization from json file");
                         mainMonoLocalization.StringContainer.SetAllDicts(allDicts);
+                        PrefabUtility.RecordPrefabInstancePropertyModifications(mainMonoLocalization);
+
                     }
                 }
             }
@@ -64,7 +67,9 @@ namespace Viter.Localization.Editor
             {
                 if (target is MainMonoLocalization mainMonoLocalization)
                 {
+                    Undo.RecordObject(mainMonoLocalization, "Set DefaultFonts");
                     DefaultFonts(mainMonoLocalization);
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(mainMonoLocalization);
                 }
             }
             if (GUILayout.Button("Clear json"))
