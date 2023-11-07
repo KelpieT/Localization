@@ -27,7 +27,6 @@ namespace Viter.Localization
         private void OnEnable()
         {
             instance = this;
-            SetDeviceLang();
         }
 
         public void SetLang(string langISO3)

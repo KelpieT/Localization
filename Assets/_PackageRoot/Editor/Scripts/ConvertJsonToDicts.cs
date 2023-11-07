@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -29,9 +32,9 @@ namespace Viter.Localization.Editor
             GUILayout.EndHorizontal();
             GUILayout.Label("Localization JSON");
             // json = EditorGUILayout.TextArea(json, GUILayout.Height(150));
-            jsonTextAsset = EditorGUILayout.ObjectField(jsonTextAsset, typeof(TextAsset));
-            font = EditorGUILayout.ObjectField(font, typeof(Font));
-            fontTmp = EditorGUILayout.ObjectField(fontTmp, typeof(TMP_FontAsset));
+            jsonTextAsset = EditorGUILayout.ObjectField(jsonTextAsset, typeof(TextAsset), jsonTextAsset);
+            font = EditorGUILayout.ObjectField(font, typeof(Font), font);
+            fontTmp = EditorGUILayout.ObjectField(fontTmp, typeof(TMP_FontAsset), fontTmp);
             // if (!string.IsNullOrWhiteSpace(json))
             // {
             //     if (GUILayout.Button("Set localization from json"))
@@ -49,7 +52,9 @@ namespace Viter.Localization.Editor
                 {
                     if (target is MainMonoLocalization mainMonoLocalization)
                     {
+
                         json = (jsonTextAsset as TextAsset).text;
+
                         SerializableDicrionary<string, SerializableDicrionary<string, string>> allDicts = FromJson();
                         mainMonoLocalization.StringContainer.SetAllDicts(allDicts);
                     }
@@ -60,6 +65,13 @@ namespace Viter.Localization.Editor
                 if (target is MainMonoLocalization mainMonoLocalization)
                 {
                     DefaultFonts(mainMonoLocalization);
+                }
+            }
+            if (GUILayout.Button("Clear json"))
+            {
+                if (jsonTextAsset != null)
+                {
+                    ClearJson();
                 }
             }
         }
@@ -112,7 +124,26 @@ namespace Viter.Localization.Editor
             allDictsTmp.SetPairs_EDITOR_ONLY(globalKeys.ToArray(), dictsTmp.ToArray());
             mainMonoLocalization.FontContainer.SetAllDicts(allDicts);
             mainMonoLocalization.TmpFontContainer.SetAllDicts(allDictsTmp);
+        }
 
+        private void ClearJson()
+        {
+            string s = (jsonTextAsset as TextAsset).text;
+
+            Regex regex = new(@"\\u200b");
+            string newJson = regex.Replace(s, "");
+
+            Regex regex2 = new(@"\\u200c");
+            newJson = regex2.Replace(newJson, "");
+
+            Regex regex3 = new(@"\\u200d");
+            newJson = regex3.Replace(newJson, "");
+
+
+            string path = Path.Combine(Application.dataPath, "../", AssetDatabase.GetAssetPath(jsonTextAsset));
+            byte[] jsBytes = Encoding.UTF8.GetBytes(newJson);
+            File.WriteAllBytes(path, jsBytes);
+            AssetDatabase.Refresh();
         }
     }
 }
