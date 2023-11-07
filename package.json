@@ -1,11 +1,11 @@
 {
     "name": "com.viter.localization",
     "displayName": "Viter Localization",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "unity": "2019.2",
     "description": "Localization",
     "dependencies": {
-        "com.viter.serdictionary": "1.0.1"
+        "com.viter.serdictionary": "1.0.0"
     },
     "author": {
         "name": "Andrey Laptev",
