@@ -14,7 +14,6 @@ namespace Viter.Localization.Editor
     [CustomEditor(typeof(MainMonoLocalization))]
     public class ConvertJsonToDicts : UnityEditor.Editor
     {
-        private const string DEFAULT_FONT = "defaultFont";
         private string json;
         private Object jsonTextAsset;
         private Object font;
@@ -117,8 +116,8 @@ namespace Viter.Localization.Editor
                 SerializableDicrionary<string, Font> fontDict = new();
                 SerializableDicrionary<string, TMP_FontAsset> fontTmpDict = new();
 
-                fontDict.SetPairs_EDITOR_ONLY(new string[] { DEFAULT_FONT }, new Font[] { defaultFont });
-                fontTmpDict.SetPairs_EDITOR_ONLY(new string[] { DEFAULT_FONT }, new TMP_FontAsset[] { defaultFontTmp });
+                fontDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new Font[] { defaultFont });
+                fontTmpDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new TMP_FontAsset[] { defaultFontTmp });
 
                 globalKeys.Add(locDict.Key);
                 dicts.Add(fontDict);

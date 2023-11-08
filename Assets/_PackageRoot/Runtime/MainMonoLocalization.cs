@@ -10,7 +10,8 @@ namespace Viter.Localization
 {
     public class MainMonoLocalization : MonoBehaviour
     {
-        private const string DEFAULT_LANG = "eng";
+        public const string DEFAULT_LANG = "eng";
+        public const string DEFAULT_FONT = "defaultFont";
         private const string ERROR_LOC = "cant find locaization";
         public static event Action OnUpdateLanguage;
         public static MainMonoLocalization instance;
@@ -24,7 +25,7 @@ namespace Viter.Localization
         public LocalizationDictionariesContainer<TMP_FontAsset> TmpFontContainer { get => tmpFontContainer; set => tmpFontContainer = value; }
         public LocalizationDictionariesContainer<Font> FontContainer { get => fontContainer; set => fontContainer = value; }
 
-        private void OnEnable()
+        private void Awake()
         {
             instance = this;
         }
