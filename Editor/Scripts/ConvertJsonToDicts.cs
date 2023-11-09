@@ -78,6 +78,30 @@ namespace Viter.Localization.Editor
                     ClearJson();
                 }
             }
+            if (GUILayout.Button("Check wrongKeys"))
+            {
+                MainMonoLocalization m = target as MainMonoLocalization;
+                m.SetLang(MainMonoLocalization.DEFAULT_LANG);
+                CheckKeys<TextMonoLocalization>(m);
+                CheckKeys<TmpTextMonoLocalization>(m);
+            }
+        }
+
+        private static void CheckKeys<T>(MainMonoLocalization m) where T : BaseSeterLocalization
+        {
+            T[] locTexts = GameObject.FindObjectsOfType<T>(true);
+            for (int i = 0; i < locTexts.Length; i++)
+            {
+                string key = locTexts[i].GetKey();
+                if (string.IsNullOrWhiteSpace(key))
+                {
+                    Debug.LogError($"name\t{locTexts[i].name}\tkey:\t{key}");
+                }
+                if (!m.StringContainer.CurrentDict.Dict.ContainsKey(key))
+                {
+                    Debug.LogError($"name\t{locTexts[i].name}\tkey:\t{key}");
+                }
+            }
         }
 
         public SerializableDicrionary<string, SerializableDicrionary<string, string>> FromJson()
