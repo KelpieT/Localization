@@ -18,6 +18,11 @@ namespace Viter.Localization
         {
             MainMonoLocalization.OnUpdateLanguage -= UpdateComponent;
         }
+        
+        public string GetKey()
+        {
+            return key;
+        }
 
         public void SetKey(string key)
         {
