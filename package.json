@@ -1,7 +1,7 @@
 {
     "name": "com.viter.localization",
     "displayName": "Viter Localization",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "unity": "2019.2",
     "description": "Localization",
     "dependencies": {
@@ -10,5 +10,12 @@
     "author": {
         "name": "Andrey Laptev",
         "url": "https://github.com/KelpieT"
-    }
+    },
+    "samples": [
+        {
+            "displayName": "Language Selection Content",
+            "description": "Language Selection Content(scroll+button)",
+            "path": "Samples~/LanguageSelection"
+        }
+    ]
 }
