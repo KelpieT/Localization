@@ -74,3 +74,4 @@ crashlytics-build.properties
 # ODIN plugin
 /Assets/Plugins/Sirenix**
 /UserSettings
+/Assets/_PackageRoot/Samples~.meta
