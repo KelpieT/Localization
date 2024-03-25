@@ -21,6 +21,18 @@ namespace Viter.Localization.Editor
             AddLocalization<TmpTextMonoLocalization, TMP_Text>();
         }
 
+        [MenuItem("Viter/Localization/Set Viter Localization")]
+        public static void MenuAddLocalizationTMP_Text()
+        {
+            AddLocalization<TmpTextMonoLocalization, TMP_Text>();
+        }
+
+        [MenuItem("Viter/Localization/Set Viter Localization Font")]
+        public static void MenuAddLocalizationFontTMP_Text()
+        {
+            AddLocalization<TmpTextMonoLocalizationFont, TMP_Text>();
+        }
+
         private static void AddLocalization<TLocComp, TText>()
             where TLocComp : MonoBehaviour
             where TText : MonoBehaviour
