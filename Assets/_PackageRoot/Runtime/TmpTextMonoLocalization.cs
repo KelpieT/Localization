@@ -12,7 +12,12 @@ namespace Viter.Localization
             text.text = MainMonoLocalization.instance.GetString(key);
             if (translateFont)
             {
-                text.font = MainMonoLocalization.instance.GetTmpFont(fontKey);
+                TmpData tmpData = MainMonoLocalization.instance.GetTmpFont(fontKey);
+                text.font = tmpData.tmpFontAsset;
+                if (tmpData.fontMaterial != null)
+                {
+                    text.fontSharedMaterial = tmpData.fontMaterial;
+                }
             }
         }
 
