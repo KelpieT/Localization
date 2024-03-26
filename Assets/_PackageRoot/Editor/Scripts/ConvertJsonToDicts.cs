@@ -27,6 +27,10 @@ namespace Viter.Localization.Editor
             }
             GUILayout.BeginHorizontal();
             drawDefaultInspector = EditorGUILayout.Toggle(drawDefaultInspector);
+            if (drawDefaultInspector)
+            {
+                return;
+            }
             GUILayout.Label("drawDefaultInspector");
             GUILayout.EndHorizontal();
             GUILayout.Label("Localization JSON");
