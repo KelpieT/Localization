@@ -126,11 +126,11 @@ namespace Viter.Localization.Editor
         public void DefaultFonts(MainMonoLocalization mainMonoLocalization)
         {
             SerializableDicrionary<string, SerializableDicrionary<string, Font>> allDicts = new();
-            SerializableDicrionary<string, SerializableDicrionary<string, TMP_FontAsset>> allDictsTmp = new();
+            SerializableDicrionary<string, SerializableDicrionary<string, TmpData>> allDictsTmp = new();
 
             List<string> globalKeys = new();
             List<SerializableDicrionary<string, Font>> dicts = new();
-            List<SerializableDicrionary<string, TMP_FontAsset>> dictsTmp = new();
+            List<SerializableDicrionary<string, TmpData>> dictsTmp = new();
 
             Font defaultFont = font as Font;
             TMP_FontAsset defaultFontTmp = fontTmp as TMP_FontAsset;
@@ -138,10 +138,10 @@ namespace Viter.Localization.Editor
             foreach (KeyValuePair<string, SerializableDicrionary<string, string>> locDict in mainMonoLocalization.StringContainer.AllDicts.Dict)
             {
                 SerializableDicrionary<string, Font> fontDict = new();
-                SerializableDicrionary<string, TMP_FontAsset> fontTmpDict = new();
+                SerializableDicrionary<string, TmpData> fontTmpDict = new();
 
                 fontDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new Font[] { defaultFont });
-                fontTmpDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new TMP_FontAsset[] { defaultFontTmp });
+                fontTmpDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new TmpData[] { new(){ tmpFontAsset = defaultFontTmp } });
 
                 globalKeys.Add(locDict.Key);
                 dicts.Add(fontDict);
