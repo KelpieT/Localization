@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Viter.Dictionary;
 using System.Globalization;
 using TMPro;
+using UnityEngine;
+using Viter.Dictionary;
 
 namespace Viter.Localization
 {
@@ -16,13 +16,13 @@ namespace Viter.Localization
         public static event Action OnUpdateLanguage;
         public static MainMonoLocalization instance;
         [SerializeField] private LocalizationDictionariesContainer<string> stringContainer;
-        [SerializeField] private LocalizationDictionariesContainer<TMP_FontAsset> tmpFontContainer;
+        [SerializeField] private LocalizationDictionariesContainer<TmpData> tmpFontContainer;
         [SerializeField] private LocalizationDictionariesContainer<Font> fontContainer;
 
         private string currentLangISO3;
 
         public LocalizationDictionariesContainer<string> StringContainer { get => stringContainer; set => stringContainer = value; }
-        public LocalizationDictionariesContainer<TMP_FontAsset> TmpFontContainer { get => tmpFontContainer; set => tmpFontContainer = value; }
+        public LocalizationDictionariesContainer<TmpData> TmpFontContainer { get => tmpFontContainer; set => tmpFontContainer = value; }
         public LocalizationDictionariesContainer<Font> FontContainer { get => fontContainer; set => fontContainer = value; }
 
         private void Awake()
@@ -58,7 +58,7 @@ namespace Viter.Localization
             }
         }
 
-        public TMP_FontAsset GetTmpFont(string key)
+        public TmpData GetTmpFont(string key)
         {
             if (tmpFontContainer.CurrentDict.Dict.ContainsKey(key))
             {
