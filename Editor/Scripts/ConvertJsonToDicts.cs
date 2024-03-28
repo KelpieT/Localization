@@ -99,11 +99,11 @@ namespace Viter.Localization.Editor
                 string key = locTexts[i].GetKey();
                 if (string.IsNullOrWhiteSpace(key))
                 {
-                    Debug.LogError($"name\t{locTexts[i].name}\tkey:\t{key}");
+                    Debug.LogError($"name\t{locTexts[i].name}\tkey:\t{key}", locTexts[i]);
                 }
                 if (!m.StringContainer.CurrentDict.Dict.ContainsKey(key))
                 {
-                    Debug.LogError($"name\t{locTexts[i].name}\tkey:\t{key}");
+                    Debug.LogError($"name\t{locTexts[i].name}\tkey:\t{key}", locTexts[i]);
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace Viter.Localization.Editor
                 SerializableDicrionary<string, TmpData> fontTmpDict = new();
 
                 fontDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new Font[] { defaultFont });
-                fontTmpDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new TmpData[] { new(){ tmpFontAsset = defaultFontTmp } });
+                fontTmpDict.SetPairs_EDITOR_ONLY(new string[] { MainMonoLocalization.DEFAULT_FONT }, new TmpData[] { new() { tmpFontAsset = defaultFontTmp } });
 
                 globalKeys.Add(locDict.Key);
                 dicts.Add(fontDict);
